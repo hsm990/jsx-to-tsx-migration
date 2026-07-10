@@ -5,8 +5,10 @@ scaffolding a new React project directly in TypeScript so no migration is ever
 needed. Works with Vite, Create React App, and Webpack projects.
 
 Compatible with any AI coding agent that supports the
-[Agent Skills](https://www.anthropic.com/news/agent-skills) open standard:
-Claude Code, Cursor, Codex, Gemini CLI, OpenCode, and others.
+[Agent Skills](https://www.anthropic.com/news/agent-skills) open standard —
+confirmed working with **Claude Code**, **Codex CLI**, **Gemini CLI**, and
+**OpenCode**. Should also work with other Agent-Skills-compatible tools via the
+`.agents/skills/` fallback directory.
 
 ## What it does
 
@@ -21,29 +23,37 @@ Claude Code, Cursor, Codex, Gemini CLI, OpenCode, and others.
 
 ## Install
 
-### Claude Code
+Works with **Claude Code**, **Codex CLI**, **Gemini CLI**, and **OpenCode** — all
+read the same open [Agent Skills](https://www.anthropic.com/news/agent-skills)
+`SKILL.md` format.
+
+### One line (any of the four agents above)
+
+Paste this into your agent — it fetches the install instructions, figures out which
+agent it's running in, and installs itself to the right directory:
+
+```
+Fetch and follow instructions from https://raw.githubusercontent.com/hsm990/jsx-to-tsx-migration/main/.agents/INSTALL.md
+```
+
+### Manual install
+
+Pick the directory row for your agent and scope:
+
+| Agent       | Personal (all projects)      | Project (this repo only) |
+|-------------|-------------------------------|----------------------------|
+| Claude Code | `~/.claude/skills/`           | `.claude/skills/`          |
+| Codex CLI   | `~/.codex/skills/`            | `.codex/skills/`           |
+| Gemini CLI  | `~/.gemini/skills/`           | `.gemini/skills/`          |
+| OpenCode    | `~/.config/opencode/skills/`  | `.opencode/skills/`        |
 
 ```bash
-git clone https://github.com/hsm990/jsx-to-tsx-migration.git ~/.claude/skills/jsx-to-tsx-migration
+git clone https://github.com/hsm990/jsx-to-tsx-migration.git <target-dir>/jsx-to-tsx-migration
 ```
 
 Or download the latest release `.zip` from the
 [Releases page](https://github.com/hsm990/jsx-to-tsx-migration/releases) and extract
-it into `.claude/skills/` (project-level) or `~/.claude/skills/` (global).
-
-### Cursor / Codex / Gemini CLI / OpenCode
-
-Extract into whichever skills directory your agent reads from (check your tool's docs
-for the exact path — most follow the same `skills/<name>/SKILL.md` convention).
-
-### Manual / any agent
-
-```bash
-git clone https://github.com/hsm990/jsx-to-tsx-migration.git
-```
-
-Then point your agent at the `SKILL.md` file directly, or copy the folder into
-whatever skills directory it scans.
+it into the matching directory above.
 
 ## Usage
 
